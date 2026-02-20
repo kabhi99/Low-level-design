@@ -17,6 +17,19 @@ Most frequently asked LLD problems in top tech companies, implemented in clean J
 | 07 | [Snake & Ladder](07-snake-and-ladder/) | Singleton, Composition | Board, Snake, Ladder, GameManager | [View](07-snake-and-ladder/README.md) |
 | 08 | [Logging Framework](08-logging-framework/) | Singleton, Strategy | Logger, LogAppender, LoggerConfig | [View](08-logging-framework/README.md) |
 
+## Tier 2 Problems
+
+| # | Problem | Patterns | Key Classes | UML |
+|---|---------|----------|-------------|-----|
+| 09 | [Vending Machine](09-vending-machine/) | State, Strategy | VendingMachine, VendingMachineState, Product, Coin | [View](09-vending-machine/README.md) |
+| 10 | [ATM](10-atm/) | State, Chain of Responsibility | ATM, ATMState, Transaction, Account | [View](10-atm/README.md) |
+| 11 | [Library Management](11-library-management/) | Singleton, Observer | Library, Book, Member, Reservation | [View](11-library-management/README.md) |
+| 12 | [Hotel Management](12-hotel-management/) | State, Strategy, Builder | Hotel, Room, Reservation, Guest | [View](12-hotel-management/README.md) |
+| 13 | [Splitwise](13-splitwise/) | Strategy | ExpenseManager, Expense, SplitStrategy, Group | [View](13-splitwise/README.md) |
+| 14 | [Online Shopping (Amazon)](14-online-shopping/) | Strategy, Observer, State | ShoppingService, Product, Order, Cart | [View](14-online-shopping/README.md) |
+| 15 | [Ride Sharing (Uber)](15-ride-sharing/) | Strategy, Observer, State | RideService, Ride, Driver, Rider | [View](15-ride-sharing/README.md) |
+| 16 | [Car Rental](16-car-rental/) | Strategy, State, Decorator | RentalService, Vehicle, Reservation, Customer | [View](16-car-rental/README.md) |
+
 ## Project Structure
 
 ```
@@ -67,13 +80,57 @@ Low level design/
 │       ├── models/          # Snake, Ladder, Player, Dice, Board
 │       ├── service/         # SnakeAndLadderGame, GameManager
 │       └── Main.java
-└── 08-logging-framework/    # Singleton + Strategy (Appenders)
+├── 08-logging-framework/    # Singleton + Strategy (Appenders)
+│   ├── README.md
+│   └── src/main/java/logger/
+│       ├── models/          # LogLevel, LogMessage
+│       ├── appender/        # LogAppender, ConsoleAppender, FileAppender, DatabaseAppender
+│       ├── service/         # Logger (Singleton), LoggerConfig
+│       └── Main.java
+├── 09-vending-machine/      # State + Strategy Pattern
+│   ├── README.md
+│   └── src/main/java/vendingmachine/
+│       ├── models/          # Product, Coin, Denomination
+│       ├── strategy/        # ChangeStrategy
+│       └── service/         # VendingMachine, VendingMachineState
+├── 10-atm/                  # State + Chain of Responsibility
+│   ├── README.md
+│   └── src/main/java/atm/
+│       ├── models/          # Card, Account, Transaction
+│       ├── state/           # ATMState, IdleState, AuthenticatedState
+│       └── service/         # ATM, CashDispenser
+├── 11-library-management/   # Singleton + Observer
+│   ├── README.md
+│   └── src/main/java/library/
+│       ├── models/          # Book, Member, Reservation, Fine
+│       └── service/         # Library, SearchService
+├── 12-hotel-management/     # State + Strategy + Builder
+│   ├── README.md
+│   └── src/main/java/hotel/
+│       ├── models/          # Hotel, Room, Guest, Reservation
+│       └── service/         # HotelManager, BookingService
+├── 13-splitwise/            # Strategy Pattern
+│   ├── README.md
+│   └── src/main/java/splitwise/
+│       ├── models/          # User, Group, Expense, Split
+│       ├── strategy/        # SplitStrategy, EqualSplit, ExactSplit
+│       └── service/         # ExpenseManager
+├── 14-online-shopping/      # Strategy + Observer + State
+│   ├── README.md
+│   └── src/main/java/shopping/
+│       ├── models/          # Product, Cart, Order, Payment
+│       └── service/         # ShoppingService, OrderService
+├── 15-ride-sharing/         # Strategy + Observer + State
+│   ├── README.md
+│   └── src/main/java/ridesharing/
+│       ├── models/          # Rider, Driver, Ride, Location
+│       ├── strategy/        # MatchingStrategy, FareStrategy
+│       └── service/         # RideService
+└── 16-car-rental/           # Strategy + State + Decorator
     ├── README.md
-    └── src/main/java/logger/
-        ├── models/          # LogLevel, LogMessage
-        ├── appender/        # LogAppender, ConsoleAppender, FileAppender, DatabaseAppender
-        ├── service/         # Logger (Singleton), LoggerConfig
-        └── Main.java
+    └── src/main/java/carrental/
+        ├── models/          # Vehicle, Customer, Reservation
+        └── service/         # RentalService
 ```
 
 ## How to Run Any Problem
